@@ -1,24 +1,12 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/json"
 	schema "github.com/Jamshid90/fhir-schema"
 	_ "github.com/lib/pq"
 	"log"
 	"net/http"
 )
-
-const (
-	host     = "127.0.0.1"
-	port     = 5432
-	user     = "postgres"
-	password = "987654321"
-	dbname   = "askdoctor"
-	fieldErrMsg = "Field validation for '%s' failed on the '%s' tag"
-)
-
-var db *sql.DB
 
 func main() {
 
@@ -30,7 +18,6 @@ func main() {
 		}
 	})
 	log.Fatal(http.ListenAndServe("localhost:9000", nil))
-
 }
 
 func CreateResource(w http.ResponseWriter, r *http.Request)  {
